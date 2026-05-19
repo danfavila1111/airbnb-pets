@@ -14,6 +14,7 @@ const caregiverRoutes = require('./routes/caregiver.routes')
 const bookingRoutes = require('./routes/booking.routes')
 const reviewRoutes = require('./routes/review.routes')
 const messageRoutes = require('./routes/message.routes')
+const chatbotRoutes = require('./routes/chatbot.routes')
 
 dotenv.config()
 
@@ -56,6 +57,8 @@ app.use('/api/caregivers', caregiverRoutes)
 app.use('/api/bookings', bookingRoutes)
 app.use('/api/reviews', reviewRoutes)
 app.use('/api/messages', messageRoutes)
+app.use('/api/chatbot', chatbotRoutes)
+
 
 // Socket.io - autenticacion
 io.use((socket, next) => {
