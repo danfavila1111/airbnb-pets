@@ -4,6 +4,7 @@ const cors = require('cors')
 const rateLimit = require('express-rate-limit')
 const dotenv = require('dotenv')
 const authRoutes = require('./routes/auth.routes')
+const userRoutes = require('./routes/user.routes')
 
 dotenv.config()
 
@@ -35,11 +36,7 @@ app.get('/health', (req, res) => {
 
 app.use('/api/auth', authRoutes)
 
-const { authenticate } = require('./middlewares/auth.middleware')
-
-app.get('/api/me', authenticate, (req, res) => {
-  res.json({ message: 'Ruta protegida', user: req.user })
-})
+app.use('/api/users', userRoutes)
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`)

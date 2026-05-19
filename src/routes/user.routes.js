@@ -1,0 +1,10 @@
+const express = require('express')
+const { getMe, updateMe } = require('../controllers/user.controller')
+const { authenticate } = require('../middlewares/auth.middleware')
+
+const router = express.Router()
+
+router.get('/me', authenticate, getMe)
+router.put('/me', authenticate, updateMe)
+
+module.exports = router
