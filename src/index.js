@@ -5,6 +5,7 @@ const rateLimit = require('express-rate-limit')
 const dotenv = require('dotenv')
 const authRoutes = require('./routes/auth.routes')
 const userRoutes = require('./routes/user.routes')
+const petRoutes = require('./routes/pet.routes')
 
 dotenv.config()
 
@@ -37,6 +38,8 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authRoutes)
 
 app.use('/api/users', userRoutes)
+
+app.use('/api/pets', petRoutes)
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`)
