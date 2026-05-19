@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth.routes')
 const userRoutes = require('./routes/user.routes')
 const petRoutes = require('./routes/pet.routes')
 const caregiverRoutes = require('./routes/caregiver.routes')
+const bookingRoutes = require('./routes/booking.routes')
 
 dotenv.config()
 
@@ -43,6 +44,8 @@ app.use('/api/users', userRoutes)
 app.use('/api/pets', petRoutes)
 
 app.use('/api/caregivers', caregiverRoutes)
+
+app.use('/api/bookings', bookingRoutes)
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`)
