@@ -1,0 +1,16 @@
+1. Agregar PostgreSQL al PATH:
+
+$env:PATH += ";C:\Program Files\PostgreSQL\17\bin"
+
+2. Iniciar PostgreSQL:
+
+pg_ctl start -D "C:\Program Files\PostgreSQL\17\data"
+
+3. Levantar el servidor Node (en la carpeta del proyecto):
+
+cd Desktop/airbnb-pets
+npm run dev
+
+4. Opcionalmente si quieres ver la base de datos visualmente, en una terminal nueva:
+
+npx prisma studio

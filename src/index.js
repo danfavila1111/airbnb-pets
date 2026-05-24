@@ -15,6 +15,7 @@ const bookingRoutes = require('./routes/booking.routes')
 const reviewRoutes = require('./routes/review.routes')
 const messageRoutes = require('./routes/message.routes')
 const chatbotRoutes = require('./routes/chatbot.routes')
+const statsRoutes = require('./routes/stats.routes')
 
 dotenv.config()
 
@@ -32,7 +33,7 @@ const PORT = process.env.PORT || 3000
 // Seguridad
 app.use(helmet())
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true
 }))
 
@@ -58,6 +59,7 @@ app.use('/api/bookings', bookingRoutes)
 app.use('/api/reviews', reviewRoutes)
 app.use('/api/messages', messageRoutes)
 app.use('/api/chatbot', chatbotRoutes)
+app.use('/api/stats', statsRoutes)
 
 
 // Socket.io - autenticacion
